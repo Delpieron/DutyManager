@@ -1,6 +1,9 @@
 ﻿using DutyManager.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,14 +39,14 @@ namespace DutyManager
         }
         private void ShowGroups()
         {
-            List<string> SHGoups = new List<string>();
+            List<string> test = new List<string>();
             foreach (var item in context.GroupModel.ToList())
             {
-                item.Name
-                //SHGoups.Add(item.Name);
+                test.Add(item.Name);
             }
-            //GroupGrid.ItemsSource;
+            ListGroup.ItemsSource = test;
         }
+        
         private void GroupAddButton_Click(object sender, RoutedEventArgs e)
         {
             //foreach (var item in context.GroupModel.ToList())
