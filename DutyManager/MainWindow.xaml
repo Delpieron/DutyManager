@@ -6,5 +6,10 @@
         xmlns:local="clr-namespace:DutyManager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+    <Grid>
+        <DataGrid x:Name="GroupGrid" Margin="0,70,583,0"/>
+        <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="207"/>
+        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Left" Margin="340,125,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click"/>
+        <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="340,150,0,0" VerticalAlignment="Top" Width="77"/>
+    </Grid>
 </Window>

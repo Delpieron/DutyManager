@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DutyManager.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,8 @@ namespace DutyManager
             Database.EnsureCreated();
         }
         public DbSet<UsersModel> UsersModel { get; set; }
+        public DbSet<GroupsModel> GroupModel { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UsersModel>().HasKey(x => x.Id);

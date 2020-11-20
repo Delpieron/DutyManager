@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DutyManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,40 @@ namespace DutyManager
     {
         readonly DBCreator context;
         UsersModel users = new UsersModel();
+        GroupsModel group = new GroupsModel();
+
         public MainWindow(DBCreator context)
         {
             this.context = context;
+
+            InitializeComponent();
+            ShowGroups();
+            
+            //GroupGrid.ItemsSource
+        }
+        private void ShowGroups()
+        {
+            List<string> SHGoups = new List<string>();
+            foreach (var item in context.GroupModel.ToList())
+            {
+                item.Name
+                //SHGoups.Add(item.Name);
+            }
+            //GroupGrid.ItemsSource;
+        }
+        private void GroupAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            //foreach (var item in context.GroupModel.ToList())
+            //{
+            //    item.Id = Guid.NewGuid();
+            //    item.Name = "test1";
+
+
+            //}
+            group.Id = Guid.NewGuid();
+            group.Name = "test1";
+            context.GroupModel.Add(group);
+            context.SaveChanges();
         }
     }
 }

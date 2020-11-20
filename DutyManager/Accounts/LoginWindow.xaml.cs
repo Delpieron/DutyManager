@@ -39,7 +39,9 @@ namespace DutyManager
             {
                 if (item.Email.Equals(textBoxLogin.Text)&& item.Password.Equals(textBoxPasswd.Text))
                 {
-                    MessageBox.Show("dziala");
+                    MainWindow mainWindow = new MainWindow(context);
+                    Close();
+                    mainWindow.Show();
                 }
             }
         }
