@@ -28,6 +28,22 @@ namespace DutyManager
         {            
             this.context = context;
             InitializeComponent();
+            AddDefaultUser();
+        }
+        private void AddDefaultUser()
+        {
+            var a = context.UsersModel.ToList();
+            foreach (var item in a)
+            {
+                if (item.Email.Equals("admin@admin.pl"))
+                    return;
+            }
+            users.Id = Guid.NewGuid();
+            users.Name = "admin";
+            users.Email = "admin@admin.pl";
+            users.Password = "admin";
+            context.Add(users);
+            context.SaveChanges();
         }
         public void CheckLogin()
         {
@@ -37,7 +53,7 @@ namespace DutyManager
             var a = context.UsersModel.ToList();
             foreach (var item in a)
             {
-                if (item.Email.Equals(textBoxLogin.Text)&& item.Password.Equals(textBoxPasswd.Text))
+                if (item.Email.Equals(textBoxLogin.Text)&& item.Password.Equals(textBoxPasswd.Password))
                 {
                     MainWindow mainWindow = new MainWindow(context);
                     Close();

@@ -66,12 +66,20 @@ namespace DutyManager
 
         private void ListGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (GroupNameTextBox.Visibility != Visibility.Visible)
+            {
+                GroupNameTextBox.Visibility = Visibility.Visible;
+                AddUsersTextBox.Visibility = Visibility.Visible;
+                AddGroup.Visibility = Visibility.Visible;
+                AddMembers.Visibility = Visibility.Visible;
+            }
             if (!selekt)
             {
                 e.Handled = true;
+                selekt = true;
                 return;
             }
-            GroupNameTextBox.Text = ListGroup.SelectedItem.ToString() == null ? ListGroup.SelectedItem.ToString() : "";
+            GroupNameTextBox.Text = ListGroup.SelectedItem.ToString() != null ? ListGroup.SelectedItem.ToString() : "";
             groupid = context.GroupModel.SingleOrDefault(x =>x.Name == ListGroup.SelectedItem.ToString()).Id;
         }
         //public List<GroupsModel> Updatetest(Guid id)
@@ -92,7 +100,7 @@ namespace DutyManager
             selekt = false;
             ShowGroups();
 
-
+            
         }
 
         private void ListGroup_MouseDown(object sender, MouseButtonEventArgs e)
