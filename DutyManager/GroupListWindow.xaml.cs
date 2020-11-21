@@ -67,9 +67,11 @@ namespace DutyManager
             window.Show();
             this.Close();    
         }
+        public List<string> lol = new List<string>();
         private void deletebutton_Click(object sender, RoutedEventArgs e)
         {
-            var name = context.GroupModel.SingleOrDefault(x => x.Id == guidid).Name;
+            group.Name = context.GroupModel.SingleOrDefault(x => x.Id == guidid).Name;
+            group.Id = context.GroupModel.SingleOrDefault(x => x.Id == guidid).Id;
             var test2 = GroupUsersListBox.SelectedItem.ToString();
             for (int i = 0; i < test.Count; i++)
             {
@@ -78,18 +80,20 @@ namespace DutyManager
                     test.RemoveAt(i);
                 }
             }
-            List<string> lol = new List<string>();
             foreach (var item in test)
             {
                 group.users += item + ",";
                 lol.Add(item);
             }
-            group.Name = name;
-            group.Id = guidid;
             usun(guidid);
-            context.GroupModel.Add(group);
-            context.SaveChanges();
+            context.Add(group);
+            saveasync();
             GroupUsersListBox.ItemsSource = lol;
+        }
+
+        public async void saveasync()
+        {
+            await context.SaveChangesAsync();
         }
     }
 }
