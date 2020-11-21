@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="465" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210"/>
         <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80"/>
         <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="240,400,0,0" VerticalAlignment="Top" Width="80" Click="DeleteGroupButton_Click"/>
@@ -19,5 +22,7 @@
         <Label x:Name="AddGroup" Content="Nazwa Grupy" HorizontalAlignment="Left" Margin="362,70,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <Label x:Name="AddMembers" Content="Dodaj Członków" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <ListBox x:Name="ListGroup" Margin="0,60,580,10"  SelectionChanged="ListGroup_SelectionChanged"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="500,360,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button x:Name="testbutton" Content="Button" HorizontalAlignment="Left" Margin="280,360,0,0" VerticalAlignment="Top" Click="testbutton_Click"/>
     </Grid>
 </Window>

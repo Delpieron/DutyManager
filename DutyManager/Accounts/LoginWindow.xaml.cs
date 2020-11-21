@@ -23,6 +23,7 @@ namespace DutyManager
     {
         readonly DBCreator context;
         UsersModel users = new UsersModel();
+        public static string logedUser;
         //Login login = new Login(context);
         public LoginWindow(DBCreator context)
         {            
@@ -56,6 +57,7 @@ namespace DutyManager
                 if (item.Email.Equals(textBoxLogin.Text)&& item.Password.Equals(textBoxPasswd.Password))
                 {
                     MainWindow mainWindow = new MainWindow(context);
+                    logedUser = item.Email;
                     Close();
                     mainWindow.Show();
                 }

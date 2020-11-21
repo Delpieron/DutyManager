@@ -11,6 +11,7 @@ namespace DutyManager
         public DBCreator(DbContextOptions<DBCreator> options) : base(options)
         {
             Database.EnsureCreated();
+            
         }
         public DbSet<UsersModel> UsersModel { get; set; }
         public DbSet<GroupsModel> GroupModel { get; set; }
