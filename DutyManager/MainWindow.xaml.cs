@@ -24,9 +24,11 @@ namespace DutyManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Guid groupid;
         readonly DBCreator context;
         UsersModel users = new UsersModel();
         GroupsModel group = new GroupsModel();
+        private bool selekt = true;
 
         public MainWindow(DBCreator context)
         {
@@ -49,17 +51,53 @@ namespace DutyManager
         
         private void GroupAddButton_Click(object sender, RoutedEventArgs e)
         {
-            //foreach (var item in context.GroupModel.ToList())
-            //{
-            //    item.Id = Guid.NewGuid();
-            //    item.Name = "test1";
-
-
-            //}
+          
             group.Id = Guid.NewGuid();
-            group.Name = "test1";
+            group.Name = GroupNameTextBox.Text;
             context.GroupModel.Add(group);
             context.SaveChanges();
+            ShowGroups();
+        }
+
+        private void DeleteGroupButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!selekt)
+            {
+                e.Handled = true;
+                return;
+            }
+            GroupNameTextBox.Text = ListGroup.SelectedItem.ToString() == null ? ListGroup.SelectedItem.ToString() : "";
+            groupid = context.GroupModel.SingleOrDefault(x =>x.Name == ListGroup.SelectedItem.ToString()).Id;
+        }
+        //public List<GroupsModel> Updatetest(Guid id)
+        //{
+        //    List<GroupsModel> lista = new List<GroupsModel>();
+        //    lista.Add();
+        //    context.GroupModel.si
+        //    return lista;
+        //}
+        private void EditGroupButton_Click(object sender, RoutedEventArgs e)
+        {
+            context.GroupModel.SingleOrDefault(x => x.Id == groupid).Name = GroupNameTextBox.Text;
+
+            //Update(groupid);
+            //group.Name = GroupNameTextBox.Text;
+            context.GroupModel.Update(context.GroupModel.SingleOrDefault(x => x.Id == groupid));
+            context.SaveChanges();
+            selekt = false;
+            ShowGroups();
+
+
+        }
+
+        private void ListGroup_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

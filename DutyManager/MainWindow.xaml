@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DutyManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="465" Width="800">
     <Grid>
-        <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="207"/>
-        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Left" Margin="340,125,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click"/>
-        <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="340,150,0,0" VerticalAlignment="Top" Width="77"/>
-        <ListBox x:Name="ListGroup" Margin="0,69,686,0"/>
+        <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210"/>
+        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80"/>
+        <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="240,400,0,0" VerticalAlignment="Top" Width="80" Click="DeleteGroupButton_Click"/>
+        <ListBox x:Name="ListGroup" Margin="0,70,580,0"  SelectionChanged="ListGroup_SelectionChanged" MouseDown="ListGroup_MouseDown"/>
+        <Button x:Name="EditGroupButton" Content="Edytuj Grupę" HorizontalAlignment="Right" Margin="0,400,240
+                ,0" VerticalAlignment="Top" Width="80" Click="EditGroupButton_Click"/>
+        <ListBox Margin="580,70,0,0"/>
+        <Label Content="Terminarz" HorizontalAlignment="Left" Margin="580,10,0,0" VerticalAlignment="Top" Width="220"/>
+        <TextBox HorizontalAlignment="Left" Margin="342,180,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="GroupNameTextBox" HorizontalAlignment="Left" Margin="342,101,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nazwa Grupy" HorizontalAlignment="Left" Margin="362,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dodaj Członków" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
