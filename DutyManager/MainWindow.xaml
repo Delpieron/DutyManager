@@ -5,24 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DutyManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="465" Width="800">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="Black" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210"/>
-        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80"/>
-        <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="240,400,0,0" VerticalAlignment="Top" Width="80" Click="DeleteGroupButton_Click"/>
-        <Button x:Name="EditGroupButton" Content="Edytuj Grupę" HorizontalAlignment="Right" Margin="0,400,240
-                ,0" VerticalAlignment="Top" Width="80" Click="EditGroupButton_Click"/>
-        <ListBox Margin="580,70,0,0"/>
+        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DeleteGroupButton" Content="Usuń Grupę" HorizontalAlignment="Left" Margin="240,380,0,0" VerticalAlignment="Top" Width="80" Click="DeleteGroupButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="EditGroupButton" Content="Edytuj Grupę" HorizontalAlignment="Right" Margin="0,380,240,0" VerticalAlignment="Top" Width="80" Click="EditGroupButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <ListBox Margin="580,70,0,0">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.1">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
         <Label Content="Terminarz" HorizontalAlignment="Left" Margin="580,10,0,0" VerticalAlignment="Top" Width="220"/>
         <TextBox x:Name="AddUsersTextBox" HorizontalAlignment="Left" Margin="342,180,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <TextBox x:Name="GroupNameTextBox" HorizontalAlignment="Left" Margin="342,101,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <Label x:Name="AddGroup" Content="Nazwa Grupy" HorizontalAlignment="Left" Margin="362,70,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <Label x:Name="AddMembers" Content="Dodaj Członków" HorizontalAlignment="Left" Margin="354,136,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <ListBox x:Name="ListGroup" Margin="0,60,580,10"  SelectionChanged="ListGroup_SelectionChanged"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="500,360,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="testbutton" Content="Button" HorizontalAlignment="Left" Margin="280,360,0,0" VerticalAlignment="Top" Click="testbutton_Click"/>
+        <ListBox x:Name="ListGroup" Margin="0,60,580,10"  SelectionChanged="ListGroup_SelectionChanged">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.1">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <Button Content="Dodaj do grupy" HorizontalAlignment="Left" Margin="471,350,0,0" VerticalAlignment="Top" Click="Button_Click" Width="98">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="testbutton" Content="Otwórz grupę" HorizontalAlignment="Left" Margin="232,350,0,0" VerticalAlignment="Top" Click="testbutton_Click" Width="96">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

@@ -7,11 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Margin="362,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="admin@admin.pl"/>
-        <Label x:Name="labelLogin" Content="Login" HorizontalAlignment="Left" Margin="384,70,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelPasswd" Content="Hasło" HorizontalAlignment="Left" Margin="384,169,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="LoginButton" Content="Button" HorizontalAlignment="Left" Margin="523,217,0,0" VerticalAlignment="Top" Click="LoginButton_Click"/>
-        <PasswordBox x:Name="textBoxPasswd" HorizontalAlignment="Left" Margin="362,218,0,0" VerticalAlignment="Top" Width="120" Password="admin"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Margin="344,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="admin@admin.pl" Background="#FFACACAC"/>
+        <Label x:Name="labelLogin" Content="Login" HorizontalAlignment="Left" Margin="385,60,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelPasswd" Content="Hasło" HorizontalAlignment="Left" Margin="384,119,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LoginButton" Content="Zaloguj" HorizontalAlignment="Left" Margin="382,187,0,0" VerticalAlignment="Top" Click="LoginButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <PasswordBox x:Name="textBoxPasswd" HorizontalAlignment="Left" Margin="344,150,0,0" VerticalAlignment="Top" Width="120" Password="admin" Background="#FF8D8D8D"/>
 
     </Grid>
 </Window>

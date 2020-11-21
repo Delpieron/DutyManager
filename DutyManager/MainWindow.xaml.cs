@@ -64,6 +64,7 @@ namespace DutyManager
             context.GroupModel.Add(group);
             context.SaveChanges();
             ShowGroups();
+           
         }
         public void usun(Guid id)
         {
@@ -137,6 +138,7 @@ namespace DutyManager
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            group.users = context.GroupModel.SingleOrDefault(x=>x.Id == groupid).users;
             group.Id = groupid;
             group.Name = GroupNameTextBox.Text;
             group.users += AddUsersTextBox.Text+",";
@@ -153,6 +155,7 @@ namespace DutyManager
         private void testbutton_Click(object sender, RoutedEventArgs e)
         {
             GroupListWindow window = new GroupListWindow(context);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
         }
     }

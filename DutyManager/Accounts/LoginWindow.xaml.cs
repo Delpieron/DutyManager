@@ -59,6 +59,7 @@ namespace DutyManager
                     MainWindow mainWindow = new MainWindow(context);
                     logedUser = item.Email;
                     Close();
+                    mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     mainWindow.Show();
                 }
             }

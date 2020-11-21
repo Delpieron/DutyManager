@@ -7,9 +7,36 @@
         mc:Ignorable="d"
         Title="GroupListWindow" Height="450" Width="800">
     <Grid>
-        <ListBox>
-            <ListBox x:Name="GroupUsersListBox" Height="424" Width="190"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="deletebutton" Content="delete" Margin="205,10,511,381" Click="deletebutton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="addbutton" Margin="504,88,188,306" Click="addbutton_Click" Content="add">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <ListBox x:Name="GroupUsersListBox" SelectionChanged="GroupUsersListBox_SelectionChanged" Margin="10,10,600,10">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
         </ListBox>
-
+        <TextBox x:Name="addEmailTextBox" HorizontalAlignment="Left" Margin="346,99,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace DutyManager
 {
-    /// <summary>
-    /// Logika interakcji dla klasy GroupListWindow.xaml
-    /// </summary>
     public partial class GroupListWindow : Window
     {
         public Guid guidid;
@@ -28,12 +25,10 @@ namespace DutyManager
             this.context = context;
             ShowGroups();
         }
-
         readonly DBCreator context;
+        public List<string> test = new List<string>();
         private void ShowGroups()
         {
-            List<string> test = new List<string>();
-
             var sum = context.GroupModel.SingleOrDefault(x => x.Id == guidid);
             var final = sum.users.Split(",");
             foreach (var item in final)
@@ -41,11 +36,60 @@ namespace DutyManager
                 test.Add(item);
             }
             test.RemoveAt(test.Count - 1);
-            //string lol = test.ToString();
-            //var wynik = lol.Split(",");
-
-            
             GroupUsersListBox.ItemsSource = test;
+        }
+        public void usun(Guid id)
+        {
+            var item = context.GroupModel.SingleOrDefault(x => x.Id == id);
+            context.GroupModel.Remove(item);
+            context.SaveChanges();
+        }
+        private void GroupUsersListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
+        private void addbutton_Click(object sender, RoutedEventArgs e)
+        {
+            Add();
+        }
+        private void Add()
+        {
+            List<string> users = new List<string>();
+            group.users = context.GroupModel.SingleOrDefault(x => x.Id == guidid).users;
+            group.users += addEmailTextBox.Text + ",";
+            group.Id = guidid;
+            group.Name = context.GroupModel.SingleOrDefault(x => x.Id == guidid).Name;
+            usun(guidid);
+            context.GroupModel.Add(group);
+            context.SaveChanges();
+            GroupUsersListBox.ItemsSource = test;
+            GroupListWindow window = new GroupListWindow(context);
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Show();
+            this.Close();    
+        }
+        private void deletebutton_Click(object sender, RoutedEventArgs e)
+        {
+            var name = context.GroupModel.SingleOrDefault(x => x.Id == guidid).Name;
+            var test2 = GroupUsersListBox.SelectedItem.ToString();
+            for (int i = 0; i < test.Count; i++)
+            {
+                if (test[i].Equals(test2))
+                {
+                    test.RemoveAt(i);
+                }
+            }
+            List<string> lol = new List<string>();
+            foreach (var item in test)
+            {
+                group.users += item + ",";
+                lol.Add(item);
+            }
+            group.Name = name;
+            group.Id = guidid;
+            usun(guidid);
+            context.GroupModel.Add(group);
+            context.SaveChanges();
+            GroupUsersListBox.ItemsSource = lol;
         }
     }
 }

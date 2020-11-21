@@ -31,6 +31,7 @@ namespace DutyManager
         private void OnStartup(object s, StartupEventArgs e)
         {
             var loginWindow = serviceProvider.GetService<LoginWindow>();
+            loginWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             loginWindow.Show();
         }
     }
