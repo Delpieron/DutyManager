@@ -15,6 +15,7 @@ namespace DutyManager
         }
         public DbSet<UsersModel> UsersModel { get; set; }
         public DbSet<GroupsModel> GroupModel { get; set; }
+        public DbSet<RolesModel> RolesModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

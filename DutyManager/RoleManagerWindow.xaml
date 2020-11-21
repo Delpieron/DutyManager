@@ -1,0 +1,22 @@
+﻿<Window x:Class="DutyManager.RoleManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DutyManager"
+        mc:Ignorable="d"
+        Title="RoleManagerWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="RoleListBox" Margin="0,0,550,0" SelectionChanged="RoleListBox_SelectionChanged"/>
+        <Button x:Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="456,16,0,0" VerticalAlignment="Top" Width="120" Click="AddButton_Click"/>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="255,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <Label Content="Imię" HorizontalAlignment="Left" Margin="255,51,0,0" VerticalAlignment="Top" Width="179"/>
+        <Label Content="Rola" HorizontalAlignment="Left" Margin="255,105,0,0" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="RoleTextBox" HorizontalAlignment="Left" Margin="255,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <ListBox x:Name="GroupsListBox" Margin="250,190,366,0" SelectionChanged="ListBox_SelectionChanged"/>
+        <Label Content="Grupa" HorizontalAlignment="Left" Margin="255,159,0,0" VerticalAlignment="Top" Width="179"/>
+        <Button x:Name="DeleteButton" Content="Usuń" HorizontalAlignment="Left" Margin="628,16,0,0" VerticalAlignment="Top" Width="120" Click="DeleteButton_Click"/>
+        <DatePicker x:Name="DataPickerText" HorizontalAlignment="Left" Margin="255,10,0,0" VerticalAlignment="Top" Width="179"/>
+
+    </Grid>
+</Window>

@@ -31,6 +31,7 @@ namespace DutyManager
         readonly DBCreator context;
         UsersModel users = new UsersModel();
         GroupsModel group = new GroupsModel();
+        RolesModel rolesModel = new RolesModel();
         
         private bool selekt = true;
         
@@ -40,8 +41,28 @@ namespace DutyManager
             
             InitializeComponent();
             ShowGroups();
-            
+            ShowRoles();
+
             //GroupGrid.ItemsSource
+        }
+        public void ShowRoles()
+        {
+            //context.RolesModel.Add(new RolesModel
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Name = "Anna",
+            //    Date = new DateTime(2020, 11, 22),
+            //    Role = "Repo",
+            //    GroupId = Guid.NewGuid()
+            //});
+            //context.SaveChanges();
+            List<string> role = new List<string>();
+            foreach (var item in context.RolesModel.ToList())
+            {
+                
+                role.Add(item.Date + " , " + item.Name + " , "+ item.Role);
+            }
+            RolesListbox.ItemsSource = role;
         }
         private void ShowGroups()
         {
@@ -64,7 +85,6 @@ namespace DutyManager
             context.GroupModel.Add(group);
             context.SaveChanges();
             ShowGroups();
-           
         }
         public void usun(Guid id)
         {
@@ -77,7 +97,6 @@ namespace DutyManager
         private void DeleteGroupButton_Click(object sender, RoutedEventArgs e)
         {
             usun(groupid);
-
         }
         private void ListGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -94,48 +113,24 @@ namespace DutyManager
                 selekt = true;
                 return;
             }
-
             GroupNameTextBox.Text = ListGroup.SelectedItem.ToString() != null ? ListGroup.SelectedItem.ToString() : "";
             groupid = context.GroupModel.SingleOrDefault(x =>x.Name == ListGroup.SelectedItem.ToString()).Id;
             groupidimportant = groupid;
         }
-        //public List<GroupsModel> Updatetest(Guid id)
-        //{
-        //    List<GroupsModel> lista = new List<GroupsModel>();
-        //    lista.Add();
-        //    context.GroupModel.si
-        //    return lista;
-        //}
         private void EditGroupButton_Click(object sender, RoutedEventArgs e)
         {
             Edit();   
         }
-
         private void Edit()
         {
-            //var a = LoginWindow.logedUser;
-            //context.GroupModel.SingleOrDefault(x => x.Id == groupid).users.Email = GroupNameTextBox.Text;
-
-            //Update(groupid);
-            //group.Name = GroupNameTextBox.Text;
-            //context.GroupModel.SingleOrDefault(x => x.Id == groupid).users.Email = AddUsersTextBox.Text;
-            //group.users.Id = Guid.NewGuid();
-            //group.users.Email = AddUsersTextBox.Text;
             group.users = AddUsersTextBox.Text;
             group.Name = GroupNameTextBox.Text;
             usun(groupid);
             context.GroupModel.Add(group);
-
             context.SaveChanges();
             selekt = false;
             ShowGroups();
         }
-
-        private void ListGroup_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             group.users = context.GroupModel.SingleOrDefault(x=>x.Id == groupid).users;
@@ -149,14 +144,24 @@ namespace DutyManager
             AddUsersTextBox.Text = "";
             selekt = false;
             ShowGroups();
-
         }
-
         private void testbutton_Click(object sender, RoutedEventArgs e)
         {
             GroupListWindow window = new GroupListWindow(context);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            RoleManagerWindow roleManagerWindow = new RoleManagerWindow(context);
+            roleManagerWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            roleManagerWindow.Show();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ShowRoles();
         }
     }
 }

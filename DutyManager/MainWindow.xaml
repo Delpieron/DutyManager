@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DutyManager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid MouseDown="Grid_MouseDown">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="White"/>
@@ -17,7 +17,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label x:Name="GroupsLabel" Content="Twoje Grupy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210"/>
-        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80">
+        <Button x:Name="GroupAddButton" Content="Utwórz Grupę" HorizontalAlignment="Left" Margin="354,350,0,0" VerticalAlignment="Top" Click="GroupAddButton_Click" Width="80">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF816262" Offset="1"/>
@@ -41,7 +41,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <ListBox Margin="580,70,0,0">
+        <ListBox x:Name="RolesListbox" Margin="580,70,0,0">
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.1">
                     <GradientStop Color="White"/>
@@ -78,5 +78,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button Content="Dodaj Wpis Do Terminarza" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Click="Button_Click_1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF816262" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            </Button>
     </Grid>
 </Window>
